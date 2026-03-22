@@ -1,0 +1,23 @@
+# Maven build directory
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# OS filer
+.DS_Store
+Thumbs.db
+
+# Loggar
+*.log
+
+# Derby databas filer
+derby.log
+*.dat
+*.lck
+*.tmp
+
+# Java compilerade klasser
+*.class
