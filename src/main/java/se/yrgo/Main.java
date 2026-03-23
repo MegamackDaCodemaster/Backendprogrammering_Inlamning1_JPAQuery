@@ -72,5 +72,16 @@ public class Main {
 
         Author resultAuthor = q2.getSingleResult();
         resultAuthor.getBooks().forEach(b -> System.out.println(b.getTitle()));
+
+        // -------------------------
+        // Uppgift 3: Skapa en fråga som listar personer som har läst boken "The Hobbit"
+        // -------------------------
+
+        System.out.println("\nUppgift 3:");
+        TypedQuery<Reader> q3 = em.createQuery(
+                "SELECT r FROM Reader r WHERE :book MEMBER OF r.books", Reader.class);
+        q3.setParameter("book", b1);
+
+        q3.getResultList().forEach(r -> System.out.println(r.getName()));
     }
 }
