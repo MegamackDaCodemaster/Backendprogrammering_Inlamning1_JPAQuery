@@ -60,5 +60,17 @@ public class Main {
         em.persist(r1);
         em.persist(r2);
         em.persist(r3);
+
+        // -------------------------
+        // Uppgift 2: Skapa en fråga som listar böcker av författaren "Tolkien"
+        // -------------------------
+
+        System.out.println("\nUppgift 2:");
+        TypedQuery<Author> q2 = em.createQuery(
+                "SELECT a FROM Author a WHERE a.name = :name", Author.class);
+        q2.setParameter("name", "Tolkien");
+
+        Author resultAuthor = q2.getSingleResult();
+        resultAuthor.getBooks().forEach(b -> System.out.println(b.getTitle()));
     }
 }
