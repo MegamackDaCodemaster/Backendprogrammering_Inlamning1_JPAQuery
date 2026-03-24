@@ -83,5 +83,16 @@ public class Main {
         q3.setParameter("book", b1);
 
         q3.getResultList().forEach(r -> System.out.println(r.getName()));
+
+        // -------------------------
+        // Uppgift 4: Författare vars böcker lästs av minst en läsare
+        // -------------------------
+
+        System.out.println("\nUppgift 4:");
+        TypedQuery<Author> q4 = em.createQuery(
+                "SELECT DISTINCT a FROM Author a JOIN a.books b JOIN b.readers r",
+                Author.class);
+
+        q4.getResultList().forEach(a -> System.out.println(a.getName()));
     }
 }
