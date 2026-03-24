@@ -7,10 +7,6 @@ import java.util.List;
 // En klass som skapar bok-objekt, mappas till tabellen "Book" i databasen
 
 @Entity
-@NamedQuery(
-        name = "Book.findByGenre",
-        query = "SELECT b FROM Book b WHERE b.genre = :genre"
-)
 public class Book {
 
     @Id
