@@ -1,1 +1,20 @@
-<!--  extern mappningsfil för JPA. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm
+                 https://jakarta.ee/xml/ns/persistence/orm_3_0.xsd"
+                 version="3.0">
+
+    <!--  extern mappningsfil för JPA. -->
+
+    <!-- Fördefinierad JPQL-fråga (Java Persistence Query Language)
+    som hämtar böcker av en viss genre -->
+
+    <named-query name="Book.findByGenre">
+        <query>
+            SELECT b FROM Book b WHERE b.genre = :genre
+        </query>
+    </named-query>
+
+</entity-mappings>
+
