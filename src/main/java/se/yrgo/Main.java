@@ -94,5 +94,17 @@ public class Main {
                 Author.class);
 
         q4.getResultList().forEach(a -> System.out.println(a.getName()));
+
+        // -------------------------
+        // Uppgift 5: Skapa en fråga som räknar antalet böcker per författare
+        // -------------------------
+
+        System.out.println("\nUppgift 5:");
+        TypedQuery<Object[]> q5 = em.createQuery(
+                "SELECT a.name, COUNT(b) FROM Author a JOIN a.books b GROUP BY a.name",
+                Object[].class);
+
+        q5.getResultList().forEach(row ->
+                System.out.println(row[0] + ": " + row[1] + " böcker"));
     }
 }
