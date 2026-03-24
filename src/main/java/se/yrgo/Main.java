@@ -106,5 +106,18 @@ public class Main {
 
         q5.getResultList().forEach(row ->
                 System.out.println(row[0] + ": " + row[1] + " böcker"));
+
+        // -------------------------
+        // Uppgift 6: Kör en fördefinierad JPQL-fråga (Named Query)
+        // som hämtar böcker av en viss genre (Fantasy)
+        // -------------------------
+
+        System.out.println("\nUppgift 6:");
+        TypedQuery<Book> q6 = em.createNamedQuery("Book.findByGenre", Book.class);
+        q6.setParameter("genre", "Fantasy");
+
+        q6.getResultList().forEach(b -> System.out.println(b.getTitle()));
+
+        em.close();
     }
 }
